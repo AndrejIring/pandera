@@ -27,6 +27,13 @@ DTYPES_AND_DATA = [
 ]
 
 
+def test_expression_return():
+    class TestModel(pa.DataFrameModel):
+        a: pl.Int32 = pa.Field(default=1, return_expresion=True)
+        
+    assert isinstance(TestModel.a, pl.Expr)
+
+
 @pytest.mark.parametrize("dtype,data", DTYPES_AND_DATA)
 def test_column_schema_simple_dtypes(dtype, data):
     schema = pa.Column(dtype, name="column")

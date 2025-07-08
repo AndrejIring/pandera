@@ -4,10 +4,10 @@
 from pandera import errors
 from pandera.api.checks import Check
 from pandera.api.dataframe.model_components import (
-    Field,
     check,
     dataframe_check,
 )
+from pandera.api.polars.model_components import FieldInfo, Field
 from pandera.api.polars.components import Column
 from pandera.api.polars.container import DataFrameSchema
 from pandera.api.polars.model import DataFrameModel
